@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+h2 {
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+hr {
+    margin-top: 50px;
+}
+p {
+    line-height: 2rem;
+}
+
+.wrapper {
+    height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    display: flex;
+    box-shadow: 0 10px 40px 10px rgba(46,61,73,0.15);
+}
+.sidebar {
+    flex: 0 0 270px;
+    padding-top: 30px;
+    color: #E5E5E5;
+    overflow: auto;
+    background: linear-gradient(to bottom, #F4B261, #F16160);
+}
+.sidebar .item {
+    padding: 20px 15px;
+    height: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease 0.3s;
+}
+.sidebar .item:hover {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.sidebar .item li {
+    display: none;
+}
+
+.content {
+    padding: 50px 100px;
+    min-width: 600px;
+    overflow: auto;
+    background: #F5F4F4;
+}
+/* .content .container {
+    width: 1000px;
+    margin: 0 auto;
+    background: (0, 0, 0, 0.5);
+    color: #5C4B51;
+} */
+.header {
+    text-align: right;
+}
+.title {
+    font-size: 4rem;
+    margin-top: 5px;
+    color: #F3B664;
+}
+
+
+/* HIGHLIGHTER */
+em.yellow {
+    background-color: rgba(255,255,0,0.4);
+}
+em.blue {
+    background-color: rgba(0,127,255,0.2);
+}
+em.purple {
+    background-color: rgba(255,0,255,0.2);
+}
+em.green {
+    background-color: rgba(0,255,0,0.2);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(179, 176, 176);
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+/* BOXED / RESPONSIVE LAYOUT */
+/* body.boxed .wrapper {
+    height: 800px;
+    width: 1400px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    box-shadow: 0 10px 40px 10px rgba(46,61,73,0.15);
+}
+body.boxed .background-left {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    z-index: -1;
+    background: linear-gradient(to bottom, #F39F61, #F27161);
+}  */
