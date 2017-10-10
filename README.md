@@ -1,7 +1,7 @@
 # udemy-travel-site
 **Udemy Course:** *The Advanced Web Development Bootcamp*
 
-**Course Author:** *Bolt Steele*
+**Course Author:** *Colt Steele*
 
 **Start Date:** *October 08, 2017*
 
