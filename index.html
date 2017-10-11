@@ -88,8 +88,8 @@
             </p>
             <p>To solidify what we have learned, we performed the following exercises:</p>
             <ul>
-                <li><a href="../02-intro-to-animations/psuedoclass-exercise/index.html">psuedoclass-exercise</a></li>
-                <li><a href="../02-intro-to-animations/animated-button/index.html">build an animated button</a></li>
+                <li><a href="02-intro-to-animations/psuedoclass-exercise/index.html">psuedoclass-exercise</a></li>
+                <li><a href="02-intro-to-animations/animated-button/index.html">build an animated button</a></li>
             </ul>
 
             <h3>CSS3 Transforms</h3>
@@ -102,7 +102,7 @@
     transform: translate(100px, 300px); /* same as both above in one line */
 }</code></pre>
             <p>
-                <em class="blue"><strong>Translate</strong> moves an element.</em> We did a few examples to get a good understanding of the translate function here: <a href="../02-intro-to-animations/transform-basics/translate.html">Transform: Translate.</a> An important thing to note with translate is that it should be used when you want to animate something and not for basic positioning.  This is because, the initial origin of that element will remain at the location, before the translation is performed. You can see how this is a problem when you try and highlight one of the boxes in the example link above. <em class="blue">So put an element where you want it first, and then perform any translations</em>.  You shouldn't try to do a translate on a translated element.
+                <em class="blue"><strong>Translate</strong> moves an element.</em> We did a few examples to get a good understanding of the translate function here: <a href="02-intro-to-animations/transform-basics/translate.html">Transform: Translate.</a> An important thing to note with translate is that it should be used when you want to animate something and not for basic positioning.  This is because, the initial origin of that element will remain at the location, before the translation is performed. You can see how this is a problem when you try and highlight one of the boxes in the example link above. <em class="blue">So put an element where you want it first, and then perform any translations</em>.  You shouldn't try to do a translate on a translated element.
             </p>
             <pre><code class="language-css">div { 
     transform: scaleX(2); /* doubles width*/
@@ -111,13 +111,13 @@
     transform-origin: left /* determines where scale starts*/
 }</code></pre>
             <p>
-                <em class="green"><strong>Scale</strong> alters the size of an element.</em> We did a few examples to get a good understanding of the scale function here: <a href="../02-intro-to-animations/transform-basics/scale.html">Transform: Scale.</a> Something to keep in mind is that scale affects every aspect of the element, including the border, font, padding, etc... The default origin of the transfrom is at the center (both vertically and horizontally), so the element grows outward from the center.  We can change that by using the transform-origin property. <em class="green">Transform-origin can be used to determine the location of where the scale occurs from.</em>
+                <em class="green"><strong>Scale</strong> alters the size of an element.</em> We did a few examples to get a good understanding of the scale function here: <a href="02-intro-to-animations/transform-basics/scale.html">Transform: Scale.</a> Something to keep in mind is that scale affects every aspect of the element, including the border, font, padding, etc... The default origin of the transfrom is at the center (both vertically and horizontally), so the element grows outward from the center.  We can change that by using the transform-origin property. <em class="green">Transform-origin can be used to determine the location of where the scale occurs from.</em>
             </p>
             <pre><code class="language-css">div { 
     transform: rotate(45deg);
 }</code></pre>
             <p>
-                <em class="purple"><strong>Rotate</strong> allows us to... rotate things.</em> We did a few examples to get a good understanding of the rotate function here: <a href="../02-intro-to-animations/transform-basics/rotations.html">Transform: Rotate.</a> Positive degrees are clockwise rotations while negative degrees are counter-clockwise rotations. <em class="purple">Transform-origin can be used to determine the location of where the rotate occurs from.</em>
+                <em class="purple"><strong>Rotate</strong> allows us to... rotate things.</em> We did a few examples to get a good understanding of the rotate function here: <a href="02-intro-to-animations/transform-basics/rotations.html">Transform: Rotate.</a> Positive degrees are clockwise rotations while negative degrees are counter-clockwise rotations. <em class="purple">Transform-origin can be used to determine the location of where the rotate occurs from.</em>
             </p>
             <pre><code class="language-css">div { 
     /* scale would overwrite rotate if below code is used */
@@ -174,7 +174,7 @@
     transition: opacity 1.5s ease-in 1;
 }</code></pre>
             <p>
-                    Instead of having to write out each of the 4 transition properties, we can simply use the shorthand for transitions as seen above. We did a few examples to get a better understanding of transitions here: <a href="../02-intro-to-animations/transition-basics/index.html">Transition: Basics</a>
+                    Instead of having to write out each of the 4 transition properties, we can simply use the shorthand for transitions as seen above. We did a few examples to get a better understanding of transitions here: <a href="02-intro-to-animations/transition-basics/index.html">Transition: Basics</a>
             </p>
             <p> 
                 Although many properties can be transitioned, there are some that cannot.  A more important question however, is what properties "should" be transitioned.  <em class="yellow">If you are concerned with performance, these are the 4 properties that are recommended to be animated or transitioned</em>, all other properties have a performance hit.
@@ -189,7 +189,7 @@
                 For more information on why all other properties are less performant, you can read this <a href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">article.</a> 
             </p>
             <p>
-                <a href="../02-intro-to-animations/transition-exercise/index.html">Transition: Final Exercise</a>
+                <a href="02-intro-to-animations/transition-exercise/index.html">Transition: Final Exercise</a>
             </p>
 
             <h3>CSS Animation Keyframes</h3>
