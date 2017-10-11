@@ -13,8 +13,7 @@ h3 {
     font-weight: 400;
     font-size: 1.3rem;
     text-decoration: underline;
-    margin: 50px 0 0 0;
-    /* text-transform: uppercase */
+    margin: 100px 0 0 0;
 }
 hr {
     margin-top: 40px;
@@ -31,6 +30,9 @@ ol p {
 }
 a:visited {
     color: blue;
+}
+pre {
+    tab-size: 2 !important;
 }
 body .background-left {
     position: absolute;
@@ -50,12 +52,10 @@ body .background-left {
     position: absolute;
     display: flex;
     box-shadow: 0 0 30px 5px rgba(46,61,73,0.15);
-    /* box-shadow: 0 0 50px 20px rgba(46,61,73,0.15); */
     transition: all ease-in-out 0.5s;
 }
 .wrapper:hover {
     box-shadow: 0 0 50px 20px rgba(46,61,73,0.15);
-    /* box-shadow: 0 0 30px 5px rgba(46,61,73,0.15); */
 }
 .sidebar {
     flex: 0 0 250px;
@@ -85,11 +85,11 @@ body .background-left {
     height: 100%;
 }
 .content {
-    padding: 50px 100px;
-    min-width: 600px;
     overflow: auto;
     background: #F5F4F4;
-    position: relative;
+}
+.container {
+    padding: 50px 100px;
 }
 .header {
     text-align: right;
@@ -134,6 +134,23 @@ em.green {
 	background-color: #F5F5F5;
 }
 /* RESPONSIVE LAYOUT */
-/* @media screen and (max-width: 1050px) {
-    
-} */
+@media screen and (max-width: 1050px) {
+    .container {
+        padding: 50px 30px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .wrapper {
+        max-height: 100%;
+        flex-direction: column;
+    }
+    .sidebar {
+        flex: 0 0 60px;
+        background: linear-gradient(to left, #F4B261, #F16160);
+        box-shadow: 0 7px 10px 0 rgba(46,61,73,0.2);
+        z-index: 1;
+    }
+    .sidebar .item {
+        display: none;
+    }
+}

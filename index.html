@@ -37,119 +37,120 @@
             </div>
             <div class="item">
                 <a href="#projects">Projects</a>
-            </div>          
+            </div>
         </div>
         <div class="content">
-            <div class="header">
-                <span><strong>Udemy Course:</strong> Advanced Web Developer Bootcamp</span>
-                <div><strong>Design Inspiration: </strong><a href="https://dribbble.com/shots/3352932-Intro-screen-Code-or-not-to-code" class="acknowledgement">Dribble Design by Olia Gozha</a></div>                    
-                <h1 class="title">Study Guide</h1>
-            </div>
-
-            <h2 id="intro">Intro</h2>
-            <p>
-                This section will introduce the topics that I have learned during my time with this course.  It will continually be updated throughout my progress with the course.
-            </p>
-
-            <hr />
-            <h2 id="advanced-css">Advanced CSS</h2>
-            <p>
-                Animations with CSS can many times be more of an art-form than web development.  Some examples of beautiful CSS animation designs can be found at the following sites: 
-            </p>
-            <ul>
-                <li><a href="http://www.species-in-pieces.com">In Pieces: 30 Species, 30 Pieces</a></li>
-                <li><a href="http://www.waaark.com">Waaark creative web studio</a></li>
-            </ul>            
-            <p>
-                However, most web developers generally don't spend much of their time with stunningly beautiful design. Instead, most web developers work on much more subtle animations, that "inform" the user without having to necessarily "tell" the user. Simple things that most people don't notice, but are imperative for ease of use. A good article advocating "why" animations are important in UI design, is <a href="https://medium.com/bridge-collection/improve-the-payment-experience-with-animations-3d1b0a9b810e">this one on Medium</a> written by User Interface Developer working at Stripe. <em class="yellow">Getting things to move is easy, but planning or designing how they should move is the hard part.</em>
-            </p>
-
-            <h3>CSS3 Psuedo-classes</h3>
-            <p>
-                Before we jump into animating CSS, lets talk about ways to trigger animations. One such way is to use <em class="yellow">CSS3 Psuedo-classes, which are selectors that specify a special state of the selected element(s). </em> A full list of pseudo-classes can be found on the MDN site, but we will be focusing on just 3 for now:
-            </p>
-            <pre><code class="language-css">div:hover { 
+            <div class="container">
+                <div class="header">
+                    <span><strong>Udemy Course:</strong> Advanced Web Developer Bootcamp</span>
+                    <div><strong>Design Inspiration: </strong><a href="https://dribbble.com/shots/3352932-Intro-screen-Code-or-not-to-code" class="acknowledgement">Dribble Design by Olia Gozha</a></div>                    
+                    <h1 class="title">Study Guide</h1>
+                </div>
+    
+                <h2 id="intro">Intro</h2>
+                <p>
+                    This section will introduce the topics that I have learned during my time with this course.  It will continually be updated throughout my progress with the course.
+                </p>
+    
+                <hr />
+                <h2 id="advanced-css">Advanced CSS</h2>
+                <p>
+                    Animations with CSS can many times be more of an art-form than web development.  Some examples of beautiful CSS animation designs can be found at the following sites: 
+                </p>
+                <ul>
+                    <li><a href="http://www.species-in-pieces.com">In Pieces: 30 Species, 30 Pieces</a></li>
+                    <li><a href="http://www.waaark.com">Waaark creative web studio</a></li>
+                </ul>            
+                <p>
+                    However, most web developers generally don't spend much of their time with stunningly beautiful design. Instead, most web developers work on much more subtle animations, that "inform" the user without having to necessarily "tell" the user. Simple things that most people don't notice, but are imperative for ease of use. A good article advocating "why" animations are important in UI design, is <a href="https://medium.com/bridge-collection/improve-the-payment-experience-with-animations-3d1b0a9b810e">this one on Medium</a> written by User Interface Developer working at Stripe. <em class="yellow">Getting things to move is easy, but planning or designing how they should move is the hard part.</em>
+                </p>
+    
+                <h3>CSS3 Psuedo-classes</h3>
+                <p>
+                    Before we jump into animating CSS, lets talk about ways to trigger animations. One such way is to use <em class="yellow">CSS3 Psuedo-classes, which are selectors that specify a special state of the selected element(s). </em> A full list of pseudo-classes can be found on the MDN site, but we will be focusing on just 3 for now:
+                </p>
+                <pre><code class="language-css">div:hover { 
     cursor: pointer;
 }</code></pre>
-            <p>
-                <em class="blue"><strong>Hover</strong> is triggered by a user mousing over the specific element.</em> This one is pretty simple and quite useful, though it is typically not triggered on mobile devices since those devices are usually touch based, not mouse based.
-            </p>
-            <pre><code class="language-css">input:focus { 
+                <p>
+                    <em class="blue"><strong>Hover</strong> is triggered by a user mousing over the specific element.</em> This one is pretty simple and quite useful, though it is typically not triggered on mobile devices since those devices are usually touch based, not mouse based.
+                </p>
+                <pre><code class="language-css">input:focus { 
     color: red;
 }</code></pre>
-            <p>
-                <em class="green"><strong>Focus</strong> is triggered when an element "receives focus."</em> It is generally triggered when the user clicks or taps on an element or selects it with the keyboard's tab key.
-            </p>
-            <pre><code class="language-css">button:active { 
+                <p>
+                    <em class="green"><strong>Focus</strong> is triggered when an element "receives focus."</em> It is generally triggered when the user clicks or taps on an element or selects it with the keyboard's tab key.
+                </p>
+                <pre><code class="language-css">button:active { 
     background: purple;
 }</code></pre>
-            <p>
-                <em class="purple"><strong>Active</strong> is triggered when an element is "being activated by the user."</em> This one can be a bit confusing, but a simple example of when this is triggered, can be seen when you hold down the mouse click on a button.
-            </p>
-            <p>To solidify what we have learned, we performed the following exercises:</p>
-            <ul>
-                <li><a href="02-intro-to-animations/psuedoclass-exercise/index.html">psuedoclass-exercise</a></li>
-                <li><a href="02-intro-to-animations/animated-button/index.html">build an animated button</a></li>
-            </ul>
-
-            <h3>CSS3 Transforms</h3>
-            <p>
-                Transform lets you manipulate the coordinate space of the CSS visual formatting model.  In other words, <em class="yellow">transforms let you move, warp, rotate and scale elements.</em>  When using transforms, you typically pass it a function that you'd like to have performed. A full list of the functions that can be found on the MDN site, but we will discuss a few of the popular ones below.
-            </p>
-            <pre><code class="language-css">div { 
+                <p>
+                    <em class="purple"><strong>Active</strong> is triggered when an element is "being activated by the user."</em> This one can be a bit confusing, but a simple example of when this is triggered, can be seen when you hold down the mouse click on a button.
+                </p>
+                <p>To solidify what we have learned, we performed the following exercises:</p>
+                <ul>
+                    <li><a href="02-intro-to-animations/psuedoclass-exercise/index.html">psuedoclass-exercise</a></li>
+                    <li><a href="02-intro-to-animations/animated-button/index.html">build an animated button</a></li>
+                </ul>
+    
+                <h3>CSS3 Transforms</h3>
+                <p>
+                    Transform lets you manipulate the coordinate space of the CSS visual formatting model.  In other words, <em class="yellow">transforms let you move, warp, rotate and scale elements.</em>  When using transforms, you typically pass it a function that you'd like to have performed. A full list of the functions that can be found on the MDN site, but we will discuss a few of the popular ones below.
+                </p>
+                <pre><code class="language-css">div { 
     transform: translateX(100px);
     transform: translateY(300px);
     transform: translate(100px, 300px); /* same as both above in one line */
 }</code></pre>
-            <p>
-                <em class="blue"><strong>Translate</strong> moves an element.</em> We did a few examples to get a good understanding of the translate function here: <a href="02-intro-to-animations/transform-basics/translate.html">Transform: Translate.</a> An important thing to note with translate is that it should be used when you want to animate something and not for basic positioning.  This is because, the initial origin of that element will remain at the location, before the translation is performed. You can see how this is a problem when you try and highlight one of the boxes in the example link above. <em class="blue">So put an element where you want it first, and then perform any translations</em>.  You shouldn't try to do a translate on a translated element.
-            </p>
-            <pre><code class="language-css">div { 
+                <p>
+                    <em class="blue"><strong>Translate</strong> moves an element.</em> We did a few examples to get a good understanding of the translate function here: <a href="02-intro-to-animations/transform-basics/translate.html">Transform: Translate.</a> An important thing to note with translate is that it should be used when you want to animate something and not for basic positioning.  This is because, the initial origin of that element will remain at the location, before the translation is performed. You can see how this is a problem when you try and highlight one of the boxes in the example link above. <em class="blue">So put an element where you want it first, and then perform any translations</em>.  You shouldn't try to do a translate on a translated element.
+                </p>
+                <pre><code class="language-css">div { 
     transform: scaleX(2); /* doubles width*/
     transform: scaleY(0.5) /* halves height */
     transform: scale(2, 0.5) /* halves width, doubles height */
     transform-origin: left /* determines where scale starts*/
 }</code></pre>
-            <p>
-                <em class="green"><strong>Scale</strong> alters the size of an element.</em> We did a few examples to get a good understanding of the scale function here: <a href="02-intro-to-animations/transform-basics/scale.html">Transform: Scale.</a> Something to keep in mind is that scale affects every aspect of the element, including the border, font, padding, etc... The default origin of the transfrom is at the center (both vertically and horizontally), so the element grows outward from the center.  We can change that by using the transform-origin property. <em class="green">Transform-origin can be used to determine the location of where the scale occurs from.</em>
-            </p>
-            <pre><code class="language-css">div { 
+                <p>
+                    <em class="green"><strong>Scale</strong> alters the size of an element.</em> We did a few examples to get a good understanding of the scale function here: <a href="02-intro-to-animations/transform-basics/scale.html">Transform: Scale.</a> Something to keep in mind is that scale affects every aspect of the element, including the border, font, padding, etc... The default origin of the transfrom is at the center (both vertically and horizontally), so the element grows outward from the center.  We can change that by using the transform-origin property. <em class="green">Transform-origin can be used to determine the location of where the scale occurs from.</em>
+                </p>
+                <pre><code class="language-css">div { 
     transform: rotate(45deg);
 }</code></pre>
-            <p>
-                <em class="purple"><strong>Rotate</strong> allows us to... rotate things.</em> We did a few examples to get a good understanding of the rotate function here: <a href="02-intro-to-animations/transform-basics/rotations.html">Transform: Rotate.</a> Positive degrees are clockwise rotations while negative degrees are counter-clockwise rotations. <em class="purple">Transform-origin can be used to determine the location of where the rotate occurs from.</em>
-            </p>
-            <pre><code class="language-css">div { 
+                <p>
+                    <em class="purple"><strong>Rotate</strong> allows us to... rotate things.</em> We did a few examples to get a good understanding of the rotate function here: <a href="02-intro-to-animations/transform-basics/rotations.html">Transform: Rotate.</a> Positive degrees are clockwise rotations while negative degrees are counter-clockwise rotations. <em class="purple">Transform-origin can be used to determine the location of where the rotate occurs from.</em>
+                </p>
+                <pre><code class="language-css">div { 
     /* scale would overwrite rotate if below code is used */
     transform: rotate(90deg);
     transform: scale(2);
     /* proper way - overwrites both transforms above */
     transform: rotate(90deg) scale(2);    
 }</code></pre>
-            <p>
-                If you tried to apply two transformations on different lines, the second transform will actually overwrite the first transform. In order to get around this, you would have to <em class="yellow">place all transformations on a single transform</em> as shown above.
-            </p>
-            <pre><code class="language-css">div { 
+                <p>
+                    If you tried to apply two transformations on different lines, the second transform will actually overwrite the first transform. In order to get around this, you would have to <em class="yellow">place all transformations on a single transform</em> as shown above.
+                </p>
+                <pre><code class="language-css">div { 
     -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
             transform: rotate(180deg);
 }</code></pre>
-            <p>
-                <em class="yellow">Vendor prefixes are needed</em>, because as more experimental CSS properties are created, not all browsers implement them the same way or at the same time. But they clutter your workspace and can get tedious writing them all out. Also, keeping track of which are needed and which aren't is a big pain point.  To get around this, <em class="yellow">it is best to use an auto-prefixer.</em> The following is a website where you can type some code in and see the prefixes that are needed or not needed: <a href="http://autoprefixer.github.io/">autoprefixer</a>
-            </p>
-
-            <h3>CSS Transitions</h3>
-            <p>
-                We have been translating, scaling, rotating, essentially moving things around, but we haven't been able to animate something yet.  We can rotate an element, but it's instantaneous and NOT animated.  <em class="yellow">Transitions allow us to control animation speed (and a few other properties) when changing CSS properties.</em> The following are the 4 transition properties that we can set for an animation:
-            </p>
-            <ol>
-                <li>transition-duration</li>
-                <li>transition-property</li>
-                <li>transition-timing-function</li>
-                <li>transition-delay</li>
-            </ol>
-            <p>A quick demo of transition basics can be found at the following link: </p>
-            <pre><code class="language-css">div { 
+                <p>
+                    <em class="yellow">Vendor prefixes are needed</em>, because as more experimental CSS properties are created, not all browsers implement them the same way or at the same time. But they clutter your workspace and can get tedious writing them all out. Also, keeping track of which are needed and which aren't is a big pain point.  To get around this, <em class="yellow">it is best to use an auto-prefixer.</em> The following is a website where you can type some code in and see the prefixes that are needed or not needed: <a href="http://autoprefixer.github.io/">autoprefixer</a>
+                </p>
+    
+                <h3>CSS Transitions</h3>
+                <p>
+                    We have been translating, scaling, rotating, essentially moving things around, but we haven't been able to animate something yet.  We can rotate an element, but it's instantaneous and NOT animated.  <em class="yellow">Transitions allow us to control animation speed (and a few other properties) when changing CSS properties.</em> The following are the 4 transition properties that we can set for an animation:
+                </p>
+                <ol>
+                    <li>transition-duration</li>
+                    <li>transition-property</li>
+                    <li>transition-timing-function</li>
+                    <li>transition-delay</li>
+                </ol>
+                <p>A quick demo of transition basics can be found at the following link: </p>
+                <pre><code class="language-css">div { 
     transition-duration: 1s;
     transition-duration: 0.5s;
     transition-duration: 3s, 1s;
@@ -166,70 +167,71 @@
     transition-timing-function: ease-out;
     transition-timing-function: linear;
 }</code></pre>
-            <p>
-                <em class="blue">transition-duration is how long the transition should last.</em> You can have multiple durations if you have declared multiple different properties in your transition-property. <em class="green">transition-property allows us to specify which property should be transitioned.</em> Something to keep in mind when using transition-property is that you cannot specify just rotate or scale, and must instead use the generic transform. <em class="purple">transition-delay allows you to set how long of a pause before the transition begins.</em> You can have multiple durations if you have declared multiple different properties in your transition-property, similar to transition-duration.<em class="yellow">transition-timing-function allows you to control the "acceleration curve" for the transition.</em>  Some great examples of this can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">MDN website.</a>
-            </p>
-            <pre><code class="language-css">div {
+                <p>
+                    <em class="blue">transition-duration is how long the transition should last.</em> You can have multiple durations if you have declared multiple different properties in your transition-property. <em class="green">transition-property allows us to specify which property should be transitioned.</em> Something to keep in mind when using transition-property is that you cannot specify just rotate or scale, and must instead use the generic transform. <em class="purple">transition-delay allows you to set how long of a pause before the transition begins.</em> You can have multiple durations if you have declared multiple different properties in your transition-property, similar to transition-duration.<em class="yellow">transition-timing-function allows you to control the "acceleration curve" for the transition.</em>  Some great examples of this can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">MDN website.</a>
+                </p>
+                <pre><code class="language-css">div {
     /* transition: [property] [duration] [timing-function] [delay] */
     transition: opacity 1.5s ease-in 1;
 }</code></pre>
-            <p>
-                    Instead of having to write out each of the 4 transition properties, we can simply use the shorthand for transitions as seen above. We did a few examples to get a better understanding of transitions here: <a href="02-intro-to-animations/transition-basics/index.html">Transition: Basics</a>
-            </p>
-            <p> 
-                Although many properties can be transitioned, there are some that cannot.  A more important question however, is what properties "should" be transitioned.  <em class="yellow">If you are concerned with performance, these are the 4 properties that are recommended to be animated or transitioned</em>, all other properties have a performance hit.
-            </p>
-            <ol>
-                <li>transform: translate()</li>
-                <li>transform: scale()</li>
-                <li>transform: rotate()</li>
-                <li>opacity;</li>
-            </ol>
-            <p>
-                For more information on why all other properties are less performant, you can read this <a href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">article.</a> 
-            </p>
-            <p>
-                <a href="02-intro-to-animations/transition-exercise/index.html">Transition: Final Exercise</a>
-            </p>
-
-            <h3>CSS Animation Keyframes</h3>
-
-
-            <hr />
-            <h2 id="async-js">Asynchronous Javascript</h2>
-            <p>
-                I haven't gotten here yet... coming soon.
-            </p>
-
-            <hr />
-            <h2 id="advanced-js">Advanced Javascript</h2>
-            <p>
-                I haven't gotten here yet... coming soon.
-            </p>
-
-            <hr />
-            <h2 id="node-mongo">Node and MongoDB</h2>
-            <p>
-                I haven't gotten here yet... coming soon.
-            </p>
-
-            <hr />
-            <h2 id="d3">D3 Data Visualization</h2>
-            <p>
-                I haven't gotten here yet... coming soon.
-            </p>
-
-            <hr />
-            <h2 id="react">React and Redux</h2>
-            <p>
-                I haven't gotten here yet... coming soon.
-            </p>
-
-            <hr />
-            <h2 id="projects">Projects</h2>
-            <p>
-                I haven't gotten here yet... coming soon.
-            </p>
+                <p>
+                        Instead of having to write out each of the 4 transition properties, we can simply use the shorthand for transitions as seen above. We did a few examples to get a better understanding of transitions here: <a href="02-intro-to-animations/transition-basics/index.html">Transition: Basics</a>
+                </p>
+                <p> 
+                    Although many properties can be transitioned, there are some that cannot.  A more important question however, is what properties "should" be transitioned.  <em class="yellow">If you are concerned with performance, these are the 4 properties that are recommended to be animated or transitioned</em>, all other properties have a performance hit.
+                </p>
+                <ol>
+                    <li>transform: translate()</li>
+                    <li>transform: scale()</li>
+                    <li>transform: rotate()</li>
+                    <li>opacity;</li>
+                </ol>
+                <p>
+                    For more information on why all other properties are less performant, you can read this <a href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">article.</a> 
+                </p>
+                <p>
+                    <a href="02-intro-to-animations/transition-exercise/index.html">Transition: Final Exercise</a>
+                </p>
+    
+                <h3>CSS Animation Keyframes</h3>
+    
+    
+                <hr />
+                <h2 id="async-js">Asynchronous Javascript</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
+    
+                <hr />
+                <h2 id="advanced-js">Advanced Javascript</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
+    
+                <hr />
+                <h2 id="node-mongo">Node and MongoDB</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
+    
+                <hr />
+                <h2 id="d3">D3 Data Visualization</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
+    
+                <hr />
+                <h2 id="react">React and Redux</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
+    
+                <hr />
+                <h2 id="projects">Projects</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
+            </div>
         </div>
     </div>
 
