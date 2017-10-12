@@ -144,6 +144,9 @@ em.green {
     }
 }
 @media screen and (max-width: 800px) {
+    body .background-left {
+        display: none;
+    }
     .wrapper {
         max-height: 100%;
         flex-direction: column;
