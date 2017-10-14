@@ -16,7 +16,8 @@
         <div class="sidebar">
             <div class="items">
                 <a href="#intro">Intro</a>
-                <a href="#advanced-css">Advanced CSS</a>
+                <a href="#animations">Animations</a>
+                <a href="#flexbox">Flexbox</a>
                 <a href="#async-js">Async JS</a>
                 <a href="#advanced-js">Advanced JS</a>
                 <a href="#node-mongo">Node and Mongo</a>
@@ -40,7 +41,7 @@
                 </p>
     
                 <hr />
-                <h2 id="advanced-css">Advanced CSS</h2>
+                <h2 id="animations">CSS Animations</h2>
                 <p>
                     Animations with CSS can many times be more of an art-form than web development.  Some examples of beautiful CSS animation designs can be found at the following sites: 
                 </p>
@@ -180,8 +181,91 @@
                     <a class="internal" href="02-intro-to-animations/transition-exercise/index.html" target="_blank">Transition: Final Exercise</a>
                 </p>
     
-                <h3>CSS Animation Keyframes</h3>
+                <h3>CSS Keyframe Animation</h3>
+                <p>
+                    Like transitions, keyframes are another tool in our CSS animation arsenal, but unlike transitions, they allow us to build much more complex and multi-component, multi-state animations. <em class="yellow">Transitions allow us to animate a single state change, keyframes allow for much more complex multi-state animations.</em> A very basic, and admittedly ugly, example of an animation was done here: <a class="internal" href="03-keyframes/basics/ugly-rainbow.html" target="_blank">Keyframe Basics</a>
+                </p>
+                <!-- <div class="media">
+                    <img src="03-keyframes/imgs/keyframes-diagram-01.png" alt="">
+                </div> -->
+                <pre><code class="language-css">@keyframes rainbowtext {
+    0% {
+        color: red;
+        font-size: 20px;
+    }
+    50% {
+        color: orange;
+        font-size: 40px;
+    }
+    100% {
+        color: blue;
+        font-size: 20px;
+    }
+}</code></pre>
+                <p>
+                    <em class="yellow">The first step in setting up keyframes is to define the keyframes.</em>  When defining the the keyframes, you can choose any percentage step between 0 and 100.
+                </p>
+                <pre><code class="language-css">div {
+    /* The usual animation properties */
+    animation-name: rainbowtext;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
     
+    /* The "newer" animation properties */
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: forward;
+    animation-play-state: paused;
+}</code></pre>
+
+                <p>
+                    <em class="yellow">The second step is to apply the animation</em>  Something important to note, is that there is nothing triggering the example animation above.  As soon as the page loads, the animation will start running. Also, many of the properties are similar to transitions, except for 4 new ones. The 'animation-iteration-count' property is pretty simple to understand, you just use an integer or infinite to define how many times the animation should run. In fact, here is a small demo for the animation-iteration property: <a class="internal" href="03-keyframes/basics/iteration.html" target="_blank">animation-iteration demo</a>.  However, we will go into a bit more depth with the other three.
+                </p>
+                <pre><code class="language-css">div {
+    animation-direction: forward;
+    animation-direction: reverse;
+    animation-direction: alternate;
+}</code></pre>
+                <p>
+                    <em class="blue">The animation-direction property allows us to have the animation run in reverse or even alternate</em>, which would cause it to animate forward normally, and then reverse back to the original state.  It's a bit easier to see in practice, so here is an example that we worked on: <a class="internal" href="03-keyframes/basics/direction.html" target="_blank">animation-direction demo</a>
+                </p>
+                <pre><code class="language-css">div {
+    animation-fill-mode: forwards;
+    animation-fill-mode: backwards;
+    animation-fill-mode: both;
+    animation-fill-mode: none;
+}</code></pre>
+                <p>
+                    <em class="green">The animation-fill-mode property specifies how an animation should apply styles before and after the animation.</em>  It's hard to explain, so this demo helps illustrate how it works: <a class="internal" href="03-keyframes/basics/fill-mode.html" target="_blank">animation-fill-mode demo</a>. The forwards option is particularly useful when you want to run an animation one time, and then have it stay in that end state instead of having it snap back to the initial state.
+                </p>
+                <pre><code class="language-css">div {
+    animation-play-state: paused;
+    animation-play-state: running;
+}</code></pre>
+                <p>
+                    <em class="purple">The animation-play-state property specifies whether the animation is running or paused.</em> Many times, this property is manipulated in javascript, but to keep things simple, we used the css 'hover' pseudoclass: <a class="internal" href="03-keyframes/basics/play-state.html" target="_blank">animation-play-state demo</a>
+                </p>
+                <pre><code class="language-css">div {
+    /* first time value always goes to duration, second goes to delay */
+    animation: 3s ease-in 1s 2 reverse both paused slidin;
+    animation: changecolor 3s linear 1s infinite;
+    animation: jiggle 4s;
+}</code></pre>
+                <p>
+                    <em class="yellow">You can use shorthand when writing animations</em>, but if you are using many properties, it can get quite dificult to read.  The order kind of matters, but it also kind of doesn't. For example, the first value that can be parsed as a time is assigned to the animation-duration property and the second one is assigned to animation-delay. But other than that, as long as your animation-name does not conflict with the other properties, the order does not matter.
+                </p>
+                <p>To solidify what we have learned, we performed the following exercises:</p>
+                <ul>
+                    <li><a class="internal" href="03-keyframes/exercise-rising-sun/index.html" target="_blank">Rising Sun Exercise</a></li>
+                    <li><a class="internal" href="03-keyframes/exercise-css-loader/index.html" target="_blank">CSS Loader</a></li>
+                </ul>
+
+                <hr />
+                <h2 id="flexbox">Flexbox</h2>
+                <p>
+                    I haven't gotten here yet... coming soon.
+                </p>
     
                 <hr />
                 <h2 id="async-js">Asynchronous Javascript</h2>
