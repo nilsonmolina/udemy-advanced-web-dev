@@ -131,13 +131,6 @@
                 <p>
                     We have been translating, scaling, rotating, essentially moving things around, but we haven't been able to animate something yet.  We can rotate an element, but it's instantaneous and NOT animated.  <em class="yellow">Transitions allow us to control animation speed (and a few other properties) when changing CSS properties.</em> The following are the 4 transition properties that we can set for an animation:
                 </p>
-                <ol>
-                    <li>transition-duration</li>
-                    <li>transition-property</li>
-                    <li>transition-timing-function</li>
-                    <li>transition-delay</li>
-                </ol>
-                <p>A quick demo of transition basics can be found at the following link: </p>
                 <pre><code class="language-css">div { 
     transition-duration: 1s;
     transition-duration: 0.5s;
@@ -163,7 +156,7 @@
     transition: opacity 1.5s ease-in 1;
 }</code></pre>
                 <p>
-                        Instead of having to write out each of the 4 transition properties, we can simply use the shorthand for transitions as seen above. We did a few examples to get a better understanding of transitions here: <a class="internal" href="02-intro-to-animations/transition-basics/index.html" target="_blank">Transition: Basics</a>
+                    Instead of having to write out each of the 4 transition properties, we can simply use the shorthand for transitions as seen above. We did a few examples to get a better understanding of transitions here: <a class="internal" href="02-intro-to-animations/transition-basics/index.html" target="_blank">Transition: Basics</a>
                 </p>
                 <p> 
                     Although many properties can be transitioned, there are some that cannot.  A more important question however, is what properties "should" be transitioned.  <em class="yellow">If you are concerned with performance, these are the 4 properties that are recommended to be animated or transitioned</em>, all other properties have a performance hit.
@@ -185,9 +178,9 @@
                 <p>
                     Like transitions, keyframes are another tool in our CSS animation arsenal, but unlike transitions, they allow us to build much more complex and multi-component, multi-state animations. <em class="yellow">Transitions allow us to animate a single state change, keyframes allow for much more complex multi-state animations.</em> A very basic, and admittedly ugly, example of an animation was done here: <a class="internal" href="03-keyframes/basics/ugly-rainbow.html" target="_blank">Keyframe Basics</a>
                 </p>
-                <!-- <div class="media">
+                <div class="media">
                     <img src="03-keyframes/imgs/keyframes-diagram-01.png" alt="">
-                </div> -->
+                </div>
                 <pre><code class="language-css">@keyframes rainbowtext {
     0% {
         color: red;
@@ -218,7 +211,6 @@
     animation-direction: forward;
     animation-play-state: paused;
 }</code></pre>
-
                 <p>
                     <em class="yellow">The second step is to apply the animation</em>  Something important to note, is that there is nothing triggering the example animation above.  As soon as the page loads, the animation will start running. Also, many of the properties are similar to transitions, except for 4 new ones. The 'animation-iteration-count' property is pretty simple to understand, you just use an integer or infinite to define how many times the animation should run. In fact, here is a small demo for the animation-iteration property: <a class="internal" href="03-keyframes/basics/iteration.html" target="_blank">animation-iteration demo</a>.  However, we will go into a bit more depth with the other three.
                 </p>
@@ -264,9 +256,152 @@
                 <hr />
                 <h2 id="flexbox">Flexbox</h2>
                 <p>
-                    I haven't gotten here yet... coming soon.
+                    Layout has long been a pain point for web developers, and many have often turned to css frameworks like bootstrap or foundation to help make sense of the mess.  Until recently that is, with the introduction of flexbox and grid layout systems, building responsive layouts is easier than its ever been. It's a newish layout module that has been around for a couple of years, but wasn't widely adopted by the major browsers until now. <em class="yellow">Flexbox is a more efficient way to lay out, align and distribute space among items in a container... even if their size is unknown.</em> The days of weird and hacky tricks using floats, clearfixes and tables to layout a page are finally gone. There is a bit of syntax to learn, and it may be a bit tricky in the beginning, but once you get passed that, layouts will be so much easier than they've ever been. A great reference for flexbox and it's many properties can be found at <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS-Tricks.</a> 
                 </p>
-    
+                <pre><code class="language-css">/* Container Properties */
+    flex-direction
+    justify-content
+    flex-wrap 
+    align-items 
+    align-content
+/* Flex Item Properties */
+    order 
+    flex 
+    flex-grow 
+    flex-shrink 
+    align-self </code></pre>
+                <p>
+                    Before we start, it's important to note that <em class="yellow">there are two types of properties for flex; the properties that apply to containers and those that apply to the individual items within the container.</em>
+                </p>
+                <h3>Flex Container Properties</h3>
+                <p>
+                    Below is an illustration of the terminology that will be used when discussing the various flex properties. These are also the default directions for the main axis and the cross axis.
+                </p>
+                <div class="media">
+                    <img src="04-flexbox/imgs/flex-terminology.png" alt="">
+                </div>                
+                <pre><code class="language-css">.container {
+    display: flex;
+}</code></pre>
+                <p>
+                    To start using flex, all you need to do is set the display property of a container to flex. It really is that simple, the tricky part is configuring flex properly to fit your needs. 
+                </p>
+                <pre><code class="language-css">.container {
+    display: flex;
+    flex-direction: row; /* default value */
+    flex-direction: row-reverse;
+    flex-direction: column;
+    flex-direction: column-reverse;
+}</code></pre>
+                <p>
+                    <em class="blue">flex-direction specifies how items are placed in the flex container, defining the main axis and it's direction.</em> To get some practice with this, we did the following example: <a class="internal" href="04-flexbox/basics/flex-direction.html" target="_blank">flex-direction</a>
+                </p>
+                <pre><code class="language-css">.container {
+    display: flex;
+    flex-wrap: no-wrap; /* default value */
+    flex-wrap: wrap;
+}</code></pre>
+                <p>
+                    <em class="green">flex-wrap specifies whether items are forced into a single line OR can be wrapped into multiple lines.</em> To get some practice with this, we did the following example: <a class="internal" href="04-flexbox/basics/flex-wrap.html" target="_blank">flex-wrap</a>. When doing our example, we found that if we made our flex-item width's really big, flex would only allow them to get as big as the container allows.  If we made the containers too small, the flex-items would break free as well.
+                </p>
+                <pre><code class="language-css">.container {
+    display: flex;
+    justify-content: flex-start; /* default value */
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between;
+    justify-content: space-around;
+}</code></pre>
+                <p>
+                    <em class="purple">justify-content defines how space is distributed between items in flex containers, ALONG THE MAIN AXIS.</em> To get some practice with this, we did the following example: <a class="internal" href="04-flexbox/basics/justify-content.html" target="_blank">justify-content</a>.
+                </p>
+
+                <p>
+                    Before moving on, we wanted to practice what we have learned by doing a quick exercise: <a class="internal" href="04-flexbox/exercise-sidebar/index.html" target="_blank">Exercise: Sidebar</a>.
+                </p>
+                <pre><code class="language-css">.container {
+    display: flex;
+    align-items: stretch; /* default value */
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;
+    align-items: baseline;
+}</code></pre>
+                <p>
+                    <em class="red">align-items defines how space is distributed BETWEEN ITEMS in flex containers, ALONG THE CROSS AXIS.</em> It is very similar to the justify-content property, but align-items works on the cross axis instead of the main axis. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/align-items.html" target="_blank">align-items</a>.
+                </p>
+                <pre><code class="language-css">.container {
+    display: flex;
+    align-content: stretch; /* default value */
+    align-content: flex-start;
+    align-content: flex-end;
+    align-content: space-between;
+    align-content: space-around;
+    align-content: center;    
+}</code></pre>
+                <p>
+                    <em class="orange">align-content defines how space is distributed BETWEEN ROWS in flex containers, ALONG THE CROSS AXIS.</em> The unfortunate name of this property makes it easy to be confused with the align-items property.  So if we don't have multiple rows or any wrapping, then we won't have any space between the rows. Essentially, <em class="orange">this property only works if wrap is used, because it only affects the space between rows</em>. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/align-content.html" target="_blank">align-content</a>.
+                </p>
+                <p>
+                    To solidify what we have learned, we tried making a very simple navbar using flexbox: <a class="internal" href="04-flexbox/exercise-navbar/index.html" target="_blank">Exercise: Navbar</a>.
+                </p>
+
+                <h3>Flex Item Properties</h3>
+                <p>Up to this point, we have learned how to define flex container properties. Now we are going to take a look at the flex item properties so that we have control on the individual elements.</p>
+
+                <pre><code class="language-css">.box-1 {
+    display: flex;
+    align-self: stretch; /* default value */
+    align-self: flex-start;
+    align-self: flex-end;
+    align-self: center;
+    align-self: baseline;
+}</code></pre>
+                <p>
+                    <em class="blue">align-self allows you to override align-items on individual flex items, long the cross axis.</em> It is very similar to the align-items property, but align-self affects only the individual item. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/align-self.html" target="_blank">align-self</a>.
+                </p>
+
+                <pre><code class="language-css">.box-1 {
+    display: flex;
+    order: 2;
+}</code></pre>
+                <p>
+                    <em class="green">order specifies the order used to lay out items in their flex container.</em> If you were to use the code example up top, box-1 would move all the way to the right, not to the second position.  This is because <em class="green">all items by default have an order of 0.</em> Setting something to an order of -1 would move it all the way to the left.  Also, if the row or column is reversed, then the order is also reversed. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/order.html" target="_blank">order</a>.
+                </p>
+                <pre><code class="language-css">.box-1 {
+    display: flex;
+    flex-grow: 0; /* default value */
+    flex-shrink: 1; /* default value */
+    flex-basis: 100px;
+    flex: 0 1 100px; /* flex: [flex-grow] [flex-shrink] [flex-basis] */
+}</code></pre>
+                <p>
+                    Up to this point, all items have been the same size, but that can be changed using flexbox. <em class="yellow">flex defines how a flex item will grow or shrink to fit the available space in a container.</em> flex is actually a shorthand property for:
+                </p>
+                <ol>
+                    <li>
+                        <em class="blue">flex-basis specifies the ideal size of a flex-item BEFORE it is placed into a flex container.</em> It's sort of like width, but it isn't. We can set flex-basis as the hypothetical ideal width, before they are placed in the container. A key distinction is that flex-basis is like width when working with rows, but it's like height when working with columns. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/flex-basis.html" target="_blank">flex-basis</a>.
+                    </li>
+                    <li>
+                        <em class="green">flex-grow dictates how the unused space should be spread amongst flex items... and its all about ratios.</em> With flex-basis, there will sometimes be a lot of extra space left over, so flex-grow allows you to specify how the left over space gets separated among the items. If box-1 has flex-grow of 1 and box-2 has flex-grow of 2, that does not always mean that it will be twice as big; it means that it will use twice as much of the available space. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/flex-grow.html" target="_blank">flex-grow</a>.
+                    </li>
+                    <li>
+                        <em class="purple">flex-shrink dictates how items should shrink when there isn't enough space in the container.</em> Setting a flex-shrink to 0 prevents that item from shrinking and will even cause the items to break out of their containers. We practiced this a bit here: <a class="internal" href="04-flexbox/basics/flex-shrink.html" target="_blank">flex-shrink</a>.
+                    </li>
+                </ol>
+                <p>
+                    Most times, the shorthand is used rather than the individual properties, but it was a good way to learn the different properties.  To practice we did the following two exercises:
+                </p>
+                <ul>
+                    <li><a class="internal" href="04-flexbox/exercise-polygon-widget/index.html" target="_blank">Polygon.com widget</a>.</li>
+                    <li><a class="internal" href="04-flexbox/exercise-holy-grail/index.html" target="_blank">Holy Grail Layout</a>.</li>
+                </ul>
+                <p>Lastly, here are some links to practice the use of flexbox and css grids (which was not talked about in this course):</p>
+                <ul>
+                    <li><a href="http://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a></li>
+                    <li><a href="http://cssgridgarden.com/" target="_blank">Grid Garden</a></li>
+                </ul>
+
                 <hr />
                 <h2 id="async-js">Asynchronous Javascript</h2>
                 <p>
@@ -300,8 +435,13 @@
                 <hr />
                 <h2 id="projects">Projects</h2>
                 <p>
-                    I haven't gotten here yet... coming soon.
+                    Throughout the course, we occasionally engaged in larger projects to better establish what we have learned and also to get the chance to put our new skills to practice.
                 </p>
+                <h3>CSS: Building A Startup Site</h3>
+                <p>
+                    This project required us to build a sample marketing page for a website that offers adventure tours in the mountains. When the page is loaded, a couple of css animations fade into view and a beautiful image takes center stage.  You can also scroll down the page to see more details on the mountain adventures. This site uses flexbox and is also responsive.
+                </p>
+                <p><a class="internal" href="05-startup-site/index.html" target="_blank">Building a Startup Site</a></p>
             </div>
         </div>
     </div>
