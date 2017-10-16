@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Documentation</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="prism/prism.css"> -->
-    <link rel="stylesheet" href="prism/prism-atom-theme.css">
+    <link rel="stylesheet" href="prism/prism.css">
+    <!-- <link rel="stylesheet" href="prism/prism-atom-theme.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,900" rel="stylesheet">
 </head>
 <body>
@@ -406,6 +406,63 @@
                 <h2 id="async-js">Asynchronous Javascript</h2>
                 <p>
                     I haven't gotten here yet... coming soon.
+                </p>
+
+                <h3>Callback functions</h3>
+                <p>
+                    A <em class="yellow">callback function is a function that is passed into another function as a parameter, and then invoked by that other function.</em> On the other hand, a <em class="blue">higher order function is a function that accepts a callback as a parameter.</em>
+                </p>
+                <pre><code class="language-css">function callback() {
+    console.log("Coming from callback");
+}
+function higherOrder(fn) {
+    console.log("About to call callback");
+    fn();
+    console.log("Callback has been invoked");
+}
+
+higherOrder(callback);</code></pre>
+                <p>
+                    The code above shows an example of both a callback and a higher order function in use.  Callbacks are a very common pattern in javascript and are used in advanced array methods, browser events like button clicks, submit, dom content loaded, Ajax Requests, and a core concept in the React Framework that we will be learning later on in the course.
+                </p>
+                <pre><code class="language-css">function sendMessageConsole(message) {
+    console.log(message);
+}
+function sendMessageAlert(message) {
+    alert(message);
+}
+function sendMessageConfirm(message) {
+    return confirm(message);
+}
+
+sendMessageConsole("Message for console");
+sendMessageAlert("Lots of duplication");
+var answer = sendMessageConfirm("Are you sure?");</code></pre>
+                <p>
+                    Above is an example of code with a bit of code duplication, that can be improved with callbacks.  All of them essentially take a message as a string, and then perform some function on that message. Let's use callbacks to try and improve the code a bit.
+                </p>
+                <pre><code class="language-css">function sendMessage(message, callback) {
+    return callback(message);
+}
+
+sendMessage("Message for console", console.log);
+sendMessage("Message for alert", alert);
+var answer = sendMessage("Are you sure?", confirm);</code></pre>
+                <p>
+                    The first step is to make a higher order function that accepts a message and a callback function.  Since console.log, alert, and confirm are all functions, we can use those as callbacks in our higher order function to actually send the message.
+                </p>
+                <pre><code class="language-css">function greet(name, formatter) {
+    return "Hello, " + formatter(name);
+}
+
+greet("Tim", function(name) {
+    return name.ToUpperCase();
+});</code></pre>
+                <p>
+                    A common pattern is to use an anonymous function as the callback, rather than a function declaration. In this example, we've passed in an anonymous function in the invocation of greet.
+                </p>
+                <p>
+                    In order to get hands on practice with callbacks, we worked on creating our very own foreach function.
                 </p>
     
                 <hr />
