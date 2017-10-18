@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Documentation</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="prism/prism.css">
-    <!-- <link rel="stylesheet" href="prism/prism-atom-theme.css"> -->
+    <!-- <link rel="stylesheet" href="prism/prism.css"> -->
+    <link rel="stylesheet" href="prism/prism-atom-theme.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,900" rel="stylesheet">
 </head>
 <body>
@@ -402,17 +402,15 @@
                     <li><a href="http://cssgridgarden.com/" target="_blank">Grid Garden</a></li>
                 </ul>
 
+
                 <hr />
                 <h2 id="async-js">Asynchronous Javascript</h2>
-                <p>
-                    I haven't gotten here yet... coming soon.
-                </p>
 
                 <h3>Callback functions</h3>
                 <p>
                     A <em class="yellow">callback function is a function that is passed into another function as a parameter, and then invoked by that other function.</em> On the other hand, a <em class="blue">higher order function is a function that accepts a callback as a parameter.</em>
                 </p>
-                <pre><code class="language-css">function callback() {
+                <pre><code class="language-javascript">function callback() {
     console.log("Coming from callback");
 }
 function higherOrder(fn) {
@@ -425,7 +423,7 @@ higherOrder(callback);</code></pre>
                 <p>
                     The code above shows an example of both a callback and a higher order function in use.  Callbacks are a very common pattern in javascript and are used in advanced array methods, browser events like button clicks, submit, dom content loaded, Ajax Requests, and a core concept in the React Framework that we will be learning later on in the course.
                 </p>
-                <pre><code class="language-css">function sendMessageConsole(message) {
+                <pre><code class="language-js">function sendMessageConsole(message) {
     console.log(message);
 }
 function sendMessageAlert(message) {
@@ -441,7 +439,7 @@ var answer = sendMessageConfirm("Are you sure?");</code></pre>
                 <p>
                     Above is an example of code with a bit of code duplication, that can be improved with callbacks.  All of them essentially take a message as a string, and then perform some function on that message. Let's use callbacks to try and improve the code a bit.
                 </p>
-                <pre><code class="language-css">function sendMessage(message, callback) {
+                <pre><code class="language-js">function sendMessage(message, callback) {
     return callback(message);
 }
 
@@ -451,7 +449,7 @@ var answer = sendMessage("Are you sure?", confirm);</code></pre>
                 <p>
                     The first step is to make a higher order function that accepts a message and a callback function.  Since console.log, alert, and confirm are all functions, we can use those as callbacks in our higher order function to actually send the message.
                 </p>
-                <pre><code class="language-css">function greet(name, formatter) {
+                <pre><code class="language-js">function greet(name, formatter) {
     return "Hello, " + formatter(name);
 }
 
@@ -461,10 +459,241 @@ greet("Tim", function(name) {
                 <p>
                     A common pattern is to use an anonymous function as the callback, rather than a function declaration. In this example, we've passed in an anonymous function in the invocation of greet.
                 </p>
+
+
+                <h3>Practice: forEach</h3>
+                <p>In order to get hands on practice with callbacks, we worked on creating our very own foreach function. </p>
+                <pre><code class="language-js">function forEach(array, callback) {
+    // To be implemented
+}
+
+// Callback signature
+function callback(curElement, currentIndex, array) {
+    // Implemented by the caller of forEach
+}</code></pre>
                 <p>
-                    In order to get hands on practice with callbacks, we worked on creating our very own foreach function.
+                    The forEach function, is a function that takes in an array and a callback as a parameter. Remember that the callback is NOT something that forEach implements, it is given to forEach as a parameter. It doesn't care what the callback does, it just invokes it for each element of the array. forEach will invoke your callback with three parameters every time, so you'll always get your current element, current index, and the entire array. Then it is up to the user of the function, whether or not they want to use all of the parameters.
                 </p>
-    
+                <pre><code class="language-js">function forEach(arr, callback) {
+    for(var i = 0; i < arr.length; i++) {
+        callback(arr[i], i, arr);
+    }
+}</code></pre>
+                <p>
+                    Above is the completed forEach function. It takes an array, and then invokes the callback with the current element, current index and the entire array for each element in the array. This can be used to improve the code of many other functions. Below is one example:
+                </p>
+                <pre><code class="language-js">var arr = [1,2,3,4,5,6];
+function double(arr) {
+    for(var i = 0; i < arr.length; i++) {
+        console.log(arr[i] * 2);
+    }
+}
+
+double(arr);</code></pre>
+                <p>In this example, we have a function called double that takes an array and doubles it by 2. Our output to console should be 2, 4, 6, 8, 10, 12.  Next let's work on refactoring this code.</p>
+
+                <pre><code class="language-js">var arr = [1,2,3,4,5,6];
+forEach(arr, function(number) {
+    console.log(number * 2);
+});</code></pre>
+
+
+                <h3>Practice: findIndex</h3>
+                <p>
+                    In order to get hands on practice with callbacks, we worked on creating our very own findIndex function. findIndex returns the index of the first element in the array for which the callback returns a truthy value. If the callback never returns a truthy value, then -1 is returned.
+                </p>
+                <pre><code class="language-js">function findIndex(array, callback) {
+    // To be implemented
+}
+
+// Callback signature
+function callback(curElement, currentIndex, array) {
+    // Implemented by the caller of forEach
+}</code></pre>
+                <p>
+                    Just like forEach, the findIndex function takes an array and a callback function. Also just like for each, the callback will have current element, current index and also the full array.
+                </p>
+                <pre><code class="language-js">var arr = [1,2,3,4,5,6];
+findIndex(arr, function(num, index, array) {
+    return num === 6;
+});</code></pre>
+                <p>
+                    Here is an example of findIndex in use.  The returned result should be 5, because findIndex should return the index of the first truthy value.
+                </p>
+                <pre><code class="language-js">var langs = ["Java", "C++", "Python", "Ruby"];
+findIndex(langs, function(lang, index, array) {
+    return lang === "Javascript;
+});</code></pre>
+                <p>
+                    Here is another example of findIndex in use.  The returned result should be -1, because findIndex could not find a truthy value.  Given the examples and the definition of the findIndex function, we were given the task of creating the findIndex function on our own.
+                </p>
+                <pre><code class="language-js">function findIndex(array, callback) {
+    for(var i = 0; i < array.length; i++) {
+        if(callback(array[i], i, array)) {
+            return i;
+        }
+    }
+    return -1;
+}</code></pre>
+                <p>
+                    This is my code for the findIndex function.  I was pretty stoked, because I got it on my first try and even used similar code formatting to the instructor.
+                </p>
+
+
+
+                <h3>The Stack and the Heap</h3>
+                <p>
+                    <em class="yellow">The stack is an ordered structure that keeps track of function invocations.</em> It is part of the JavaScript runtime and it technically isn't something you have access to directly. <em class="yellow">Everytime you invoke a function, the stack gets modified to keep track of that function, and everytime a function is finished running, it will be popped off the stack.</em> You are not the one directly modifying the stack, the JavaScript runtime is doing that. So how does your code change the stack? Whenever you invoke a function, the details of the invocation are saved to the top of the stack (pushed to the top).  Whenever a function returns, the information about the invocation is taken off the top of the stack (popped off of the top).
+                </p>
+                <p>
+                    <em class="blue">The call stack is divided up into contiguous pieces called stack frames.</em> Each "frame" contains information about the function that was invoked, the parameters that were passed to the function and also the current line number. So in summary, the stack is an ordered set of stack frames. The most recently invoked function are on the top of the stack, while the bottom of the stack contains the first function invoked. The stack is always processed from top to bottom.
+                </p>
+                <p>
+                    <em class="green">A heap is an area in memory where the data is stored.</em>
+                </p>
+                <pre><code class="language-js">// The object is created in the heap.
+// obj is a reference to the object.
+var obj = {firstName: "Tim", lastName: "Garcia"};
+// Not creating something new on the heap, only a copy of the reference
+var referenceCopy = obj;</code></pre>
+                <h3>setTimeout and setInterval</h3>
+                <p>
+                    Now that we have some of the foundational material covered, we are going to move on and talk about two important functions that facilitate asynchronous code.
+                </p>
+                <pre><code class="language-js">setTimeout(function() {
+    console.log("Runs in approx. 2000ms");
+}, 2000);</code></pre>
+                <p>
+                    <em class="yellow">setTimeout is a function that asynchronously invokes a callback after a delay in milliseconds.</em> In the example above, we will console log that message two seconds after it is invoked.
+                </p>
+                <pre><code class="language-js">var timerId = setTimeout(function() {
+    console.log("Runs in 30 seconds");
+}, 30000);
+
+setTimeout(function() {
+    console.log("Canceling the firs setTimeout", timerId);
+    clearTimeout(timerId);
+}, 2000);</code></pre>
+                <p>
+                    At times you may want to cancel a setTimeout.  Everytime you call a setTimeout, it returns an id of that timeout and you can actually clear it if you are able to run it before the setTimeout delay runs out.
+                </p>
+                <pre><code class="language-js">var num = 0;
+setInterval(function() {
+    num++;
+    console.log("num: ", num);
+}, 1000);</code></pre>
+                <p>
+                    <em class="blue">setInterval is a function that continually invokes a callback after every x millisenconds, where x is provided to setInterval.</em> In the example above, we are incrementing num and console logging it every second.
+                </p>
+                <pre><code class="language-js">var num = 0;
+var intervalId = setInterval(function() {
+    num++;
+    console.log("num: ", num);
+    if (num === 3) {
+        clearInterval(intervalId);
+    }
+}, 1000);</code></pre>
+                <p>
+                    And just like setTimeout, we can cancel setInterval by saving the id that is returned when invoking the function and then clearing it with the clearInterval function.
+                </p>
+
+                <h3>Assignment: countDown function</h3>
+                <p>
+                    Your goal is to Implement a function called countDown that accepts a time in seconds. The function will print the time remain to the console every second. Instead of printing 0, the function should print "Ring Ring Ring!!!".
+                </p>
+                <pre><code class="language-js">// My submission 
+function countDown(time) {
+    var intervalId = setInterval(function() {
+        if (time < 1) {
+            clearInterval(intervalId);
+            console.log("Ring Ring Ring!!!");
+            return;
+        }
+        console.log("Timer:", time);
+        time--;
+    }, 1000);
+}
+
+// Colts Submission
+function countDown(seconds) {
+    var intervalId = setInterval(function() {
+      seconds--;
+      if (seconds > 0) {
+        console.log("Timer:", seconds);
+      } else {
+        console.log("Ring Ring Ring!!!");
+        clearInterval(intervalId);
+      }
+    }, 1000);
+  }</code></pre>
+                <p>
+                    After seeing Colts solution, I learned that I have a lot of improvement to make. First off, my variable naming was not as effective.  I used the variable name "time", whereas Colt used "seconds" and I believe that is much more descriptive and relevant to the function. I also noticed that Colt reduced the seconds variable immediately.  I assumed that we had to show the inputted time first, but his makes more sense. In fact, mine could be considered wrong, because the callback function of setInterval, does not run until after an interval already passes, thus my timer is off by a whole interval. 
+                    
+                    I feel that this exercise was a great little assignment.  The prior lessons prepared me to answer this question very quickly and although I made mistakes, I was able to understand why and know how to improve. In the future, I'll be sure to take more time and look over my code a bit more before submitting it.
+                </p>
+
+
+                <h3>Event Loop & The Queue</h3>
+                <p>
+                    <em class="yellow">The queue is an ordered list of functions waiting to be placed on the stack.</em>  Functions in the queue are processed on a first in, first out basis (FIFO). <em class="blue">The Event Loop is a functionality in the JavsScript runtime that checks the queue when the stack is empty. If the stack is empty, the front of the queue is placed in the stack.</em> So if you have a setTimeout function with a delay of zero, that callback will be put onto the queue and it will not complete until the stack is completely empty.  Once it is, the Event Loop will then put it onto the stack for it to be completed.  So even with a delay of zero, it will NOT run immediately, instead, it will run once the stack is cleared. This leads to the next important point, that <em class="green">JavaScript is single threaded; the code execution is linear.</em>  Code that is running cannot be interrupted by something else going on in the program.
+                </p>
+                <pre><code class="language-js">setTimeout(function() {
+    console.log("Hello from the timeout");
+}, 0);
+
+console.log("Starting loop");
+for (var i = 0; i < 1000000000; i++) {
+    var x = i * 2;
+}
+console.log("Done with loop");</code></pre>
+                <p>
+                    To further illustrate JavaScripts single-threadeded behavior, the above example shows a timeout function with a callback that should run in 0 seconds. However, it actually means to invoke that callback, 0 seconds after the stack is empty. So after we've invoked the said timeout, console message is logged and then we have a for loop that is going to take some time, since it's looping over a very large number. After the loop, another console messaged is logged, and only after this, will the callback be run.  This is because the callback is put on the queue, and the Event Loop will only add the queued functions once the stack is empty.
+                </p>
+
+
+                <h3>Promise Basics</h3>
+                <p>
+                    <em class="yellow">A Promise, in Javascript, is an object that represents a task that will be completed in the future.</em> An analogy is like taking a number at a government office before you can get helped.  The piece of paper you get is like your promise.  The help you get at the counter is like the invocation of your callback.
+                </p>
+                <pre><code class="language-js">var p1 = new Promise(function(resolve, reject) {
+var num = Math.random();
+    if(num < 0.5) {
+        resolve(num);
+    } else {
+        reject(num);
+    }
+});
+
+p1.then(function(result) {
+    console.log("Success:", result);
+}).catch(function(error) {
+    console.log("Error:", error);
+});</code></pre>
+                    <p>
+                        Here is an example of creating a promise.  First we are using the promise constructor. The constructor function takes a single callback function. That function has two parameters, either a resolve function or a reject function. The asynchronous task will decide whether to invoke the resolve or reject depending on how it goes. If it is successful (in this case if the random number is less than 0.5) then resolve will be invoked and if it fails (random number greater than 0.5), reject will be invoked. This promise object is assigned to the p1 variable.  We can then use the ".then" function on this promise object to define the callback that will be invoked when resolve is invoked inside of the promise. So the variable 'num' is passed into the callback that gets invoked in the .then function. If the process does not complete successfully and the reject function is invoked, we can then handle that error using the ".catch" function of the promise object. 
+                    </p>
+                    <pre><code class="language-js">var promise = new Promise(function(resolve, reject) {
+    resolve(5);
+});
+
+promise.then(function(data) {
+    return data * 2;
+}).then(function(data) {
+    return data + 20;
+}).then(function(data) {
+    console.log(data);
+});</code></pre>
+                <p>
+                    The code above shows an example of promise chaining.  The promise value returned in the first '.then' callback, is returned as the value of the next '.then' callback.  In the example above, the resolved 5 is multiplied by 2 in the first '.then' and the value 10 is returned.  The second '.then' adds 20 to the 10 returned in the first '.then' and returns 30.  The third and final '.then' logs the returned 30 value from the second '.then' to the log. I may have worded that a bit confusingly, but essentially the console would log 30 due to the promise chaining.  Instead of a value, a '.then' function can also return a new promise and the next '.then' function would then apply to the new promise object. <em class="yellow">It is useful to understand how promises work (resolve, reject), but in practice you will often use promises that are returned to you.</em>
+                </p>
+
+                <h3>AJAX</h3>
+                <p>
+                    Ajax is exciting because it literally opens up a whole new world of possibilities and things you can do with your applications. Ajax stands for Asynchronous Javascript and XML, and it's no longer a very good name since nowadays, XML isn't as popular as it used to be and has been replaced with the JSON data format instead. Problem is that AJAX just sounds so much better than AJOJ or other acronyms. Before we continue, lets talk about what AJAX is NOT.  Ajax is not a library, it isn't a framework and its not a technology. It's not a tool that someone created, nobody owns it or developed it. <em class="yellow">AJAX is simply an approach to web development, a concept, a way of building websites.</em> It's pretty much a different way of structuring apps, using existing tools and technology, but just putting them together in a certain way. <em class="yellow">With AJAX, websites can send and request data from a server in the background without disturbing the current page.</em>
+                </p>
+
+
+
                 <hr />
                 <h2 id="advanced-js">Advanced Javascript</h2>
                 <p>
@@ -494,6 +723,7 @@ greet("Tim", function(name) {
                 <p>
                     Throughout the course, we occasionally engaged in larger projects to better establish what we have learned and also to get the chance to put our new skills to practice.
                 </p>
+                <p><a class="internal" href="03-keyframes/exercise-rising-sun/index.html" target="_blank">Rising Sun Exercise</a></p>
                 <h3>CSS: Building A Startup Site</h3>
                 <p>
                     This project required us to build a sample marketing page for a website that offers adventure tours in the mountains. When the page is loaded, a couple of css animations fade into view and a beautiful image takes center stage.  You can also scroll down the page to see more details on the mountain adventures. This site uses flexbox and is also responsive.
@@ -503,6 +733,15 @@ greet("Tim", function(name) {
         </div>
     </div>
 
+
+    <script>
+        let random = Math.random() * 10;
+        if (random <= 4) {
+            document.body.classList.add('blue');
+        } else if (random <= 8) {
+            document.body.classList.add('magenta');
+        }
+    </script>
     <script src="prism/prism.js"></script>
     <script src="script.js"></script>
 </body>
